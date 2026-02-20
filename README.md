@@ -1,1 +1,160 @@
-# 🚀 Analytics Engine API API responsável por coletar, processar e servir métricas analíticas em tempo real, inspirada no modelo do Google Analytics 4 (GA4), com foco em performance, organização e escalabilidade. --- ## 🎯 Objetivo Criar uma API de analytics que: - Consuma dados via APIs oficiais do Google - Permita autenticação via conta Google (OAuth2) - Calcule métricas como: - CTR - ROI - CPC - CTA - Eventos customizados - Disponibilize dados em tempo real - Seja escalável e preparada para cloud --- ## 🏗 Arquitetura Client (Web / Mobile) ↓ Frontend (React) ↓ Fastify API ↓ Services (Google APIs) ↓ PostgreSQL Arquitetura baseada em: - Clean Architecture - Separação por módulos - Services layer - Cálculo de métricas isolado - Princípios SOLID --- ## 🛠 Stack - Node.js - TypeScript - Fastify - Prisma ORM - PostgreSQL - OAuth2 Google - Redis (planejado para cache real-time) --- ## 📂 Estrutura de Pastas src/ │ ├── modules/ │ ├── auth/ │ ├── analytics/ │ ├── metrics/ │ ├── realtime/ │ ├── services/ │ ├── googleAnalytics.service.ts │ ├── utils/ │ ├── metricsCalculator.ts │ ├── plugins/ ├── app.ts └── server.ts --- ## 🔐 Autenticação - Login via conta Google (OAuth2) - Armazenamento seguro de tokens - Refresh automático - Controle de acesso por usuário (multi-tenant preparado) --- ## 📊 Métricas Suportadas | Métrica | Fórmula | |----------|----------| | CTR | Clicks / Impressões | | ROI | (Receita - Investimento) / Investimento | | CPC | Custo / Clicks | | CTA | Eventos de conversão | | Custom Events | Definido pelo usuário | --- ## ⚡ Real-Time Strategy Estratégia de atualização: - Polling controlado - Cache com Redis (fase futura) - WebSockets (fase avançada) - Otimização de queries no PostgreSQL --- ## 🧪 CI/CD - GitHub Actions - Lint + Type Check - Testes automatizados - Build automático - Deploy automático após merge na main --- ## ☁ Deploy Ambientes planejados: - Google Cloud Run - Google Cloud - Railway - Render --- ## 🛣 Roadmap - [ ] Implementar OAuth completo - [ ] Integração inicial com GA4 - [ ] Dashboard de métricas base - [ ] Sistema de eventos customizados - [ ] WebSockets real-time - [ ] Sistema multi-tenant - [ ] Cache distribuído --- ## 🎯 Visão de Longo Prazo Criar uma alternativa mais: - Rápida - Estética - Simples de usar - Performática - Desenvolvedor-friendly Com potencial de competir diretamente com o GA4 no futuro.
+# 🚀 Analytics Engine API
+
+API responsável por coletar, processar e servir métricas analíticas em tempo real, inspirada no modelo do GA4, com foco em performance, organização e escalabilidade.
+
+---
+
+## 🎯 Objetivo
+
+Criar uma API de analytics que:
+
+- Consuma dados via APIs oficiais do Google  
+- Permita autenticação via conta Google (OAuth2)  
+- Calcule métricas como:
+  - CTR  
+  - ROI  
+  - CPC  
+  - CTA  
+  - Eventos customizados  
+- Disponibilize dados em tempo real  
+- Seja escalável e preparada para cloud  
+
+---
+
+## 🏗 Arquitetura
+
+```bash
+Client (Web / Mobile)
+        ↓
+Frontend (React)
+        ↓
+Fastify API
+        ↓
+Services (Google APIs)
+        ↓
+PostgreSQL
+```
+
+### Base arquitetural
+
+- Clean Architecture  
+- Separação por módulos  
+- Services Layer  
+- Cálculo de métricas isolado  
+- Princípios SOLID  
+
+---
+
+## 🛠 Stack
+
+- Node.js  
+- TypeScript  
+- Fastify  
+- Prisma ORM  
+- PostgreSQL  
+- OAuth2 Google  
+- Redis (planejado para cache real-time)  
+
+---
+
+## 📂 Estrutura de Pastas
+
+```bash
+src/
+│
+├── modules/
+│   ├── auth/
+│   ├── analytics/
+│   ├── metrics/
+│   ├── realtime/
+│
+├── services/
+│   ├── googleAnalytics.service.ts
+│
+├── utils/
+│   ├── metricsCalculator.ts
+│
+├── plugins/
+│
+├── app.ts
+└── server.ts
+```
+
+---
+
+## 🔐 Autenticação
+
+- Login via conta Google (OAuth2)  
+- Armazenamento seguro de tokens  
+- Refresh automático  
+- Controle de acesso por usuário (multi-tenant preparado)  
+
+---
+
+## 📊 Métricas Suportadas
+
+| Métrica        | Fórmula                                  |
+|---------------|--------------------------------------------|
+| CTR           | Clicks / Impressões                       |
+| ROI           | (Receita - Investimento) / Investimento   |
+| CPC           | Custo / Clicks                            |
+| CTA           | Eventos de conversão                      |
+| Custom Events | Definido pelo usuário                     |
+
+---
+
+## ⚡ Real-Time Strategy
+
+Estratégia de atualização:
+
+- Polling controlado  
+- Cache com Redis (fase futura)  
+- WebSockets (fase avançada)  
+- Otimização de queries no PostgreSQL  
+
+---
+
+## 🧪 CI/CD
+
+- GitHub Actions  
+- Lint + Type Check  
+- Testes automatizados  
+- Build automático  
+- Deploy automático após merge na `main`  
+
+---
+
+## ☁ Deploy
+
+Ambientes planejados:
+
+- Google Cloud Run  
+- Google Cloud  
+- Railway  
+- Render  
+
+---
+
+## 🛣 Roadmap
+
+- [ ] Implementar OAuth completo  
+- [ ] Integração inicial com GA4  
+- [ ] Dashboard de métricas base  
+- [ ] Sistema de eventos customizados  
+- [ ] WebSockets real-time  
+- [ ] Sistema multi-tenant  
+- [ ] Cache distribuído  
+
+---
+
+## 🎯 Visão de Longo Prazo
+
+Criar uma alternativa mais:
+
+- Rápida  
+- Estética  
+- Simples de usar  
+- Performática  
+- Desenvolvedor-friendly  
+
+Com potencial de competir diretamente com o GA4 no futuro.
